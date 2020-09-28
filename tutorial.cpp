@@ -7,6 +7,8 @@
   #include "MathFunctions/mysqrt.h"
 #endif
 
+#include "myfib.h"
+
 int tutorial_sqrt(int i)
   {
 #ifdef USE_MYMATH
@@ -19,18 +21,21 @@ int tutorial_sqrt(int i)
 int main()
   {
   std::vector<int> version = { VERSION_MAJOR, VERSION_MINOR, VERSION_BUGFIX, VERSION_BUILD };
-  for (auto it = version.begin(); it != version.end(); ++it)
-    {
-    std::cout << *it;
-    if (it != version.end() - 1)
-      std::cout << ".";
-    }
+  std::cout << "Application Version: " << version.front();
+  for (auto it = version.begin() + 1; it != version.end(); ++it)
+    std::cout << "." << *it;
 
-  int i;
+  int input;
   std::cout << std::endl;
-  std::cout << "Square root input: ";
-  std::cin >> i;
-  std::cout << "Square root of " << i <<  " is " << tutorial_sqrt(4) << std::endl;
+  /*std::cout << "Square root input: ";
+  std::cin >> input;
+  std::cout << "Square root of " << input <<  " is " << tutorial_sqrt(input) << std::endl;*/
+
+  std::cout << "Fibonacci input: ";
+  std::cin >> input;
+  std::cout << "Fibonacci series: ";
+  for (auto i = 0; i < input; ++i)
+    std::cout << myfib(i) << " ";
 
   return 0;
   }
