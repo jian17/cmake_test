@@ -3,7 +3,18 @@
 #include <iostream>
 #include <vector>
 
-#include "MathFunctions/mysqrt.h"
+#ifdef USE_MYMATH
+  #include "MathFunctions/mysqrt.h"
+#endif
+
+int tutorial_sqrt(int i)
+  {
+#ifdef USE_MYMATH
+  return mysqrt(i);
+#else
+  return std::sqrt(i);
+#endif
+  }
 
 int main()
   {
@@ -19,7 +30,7 @@ int main()
   std::cout << std::endl;
   std::cout << "Square root input: ";
   std::cin >> i;
-  std::cout << "Square root of " << i <<  " is " << mysqrt(4) << std::endl;
+  std::cout << "Square root of " << i <<  " is " << tutorial_sqrt(4) << std::endl;
 
   return 0;
   }
