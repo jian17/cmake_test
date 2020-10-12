@@ -5,6 +5,9 @@ project(Tutorial VERSION 1.0)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+set_property(GLOBAL PROPERTY PREDEFINED_TARGETS_FOLDER "_CMakePredefinedTargets")
+
 option(USE_MYMATH "Use self-defined math implementation" ON)
 
 if(USE_MYMATH)
